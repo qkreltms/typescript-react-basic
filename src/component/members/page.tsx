@@ -12,7 +12,7 @@ export class MembersPage extends React.Component<Props, State> {
   state = { members: [] };
 
   public componentDidMount() {
-    memberAPI.fetchMembers().then(members => {
+    memberAPI.fetchMembersAsync().then(members => {
       this.setState({ members });
     });
   }
