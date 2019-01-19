@@ -1,11 +1,8 @@
 import * as React from 'react'
-import { Header, About } from './component'
+import { Header } from './component'
 
-export default () => {
+export default (props) => {
     return (
-        <div className='container-fluid'>
             <Header/>
-            <About/>
-        </div>
     )
 }
