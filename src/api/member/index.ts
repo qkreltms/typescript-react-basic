@@ -1,10 +1,41 @@
 import { members } from './mockData'
 
 const baseURL = 'https://api.github.com/orgs/lemoncode'
+let mockMembers = members
 
 //내장된 파일의 가짜 데이터에서 가져옴
 const fetchMembers = (): Promise<MemberEntity[]> => {
-    return Promise.resolve(members)
+    return Promise.resolve(mockMembers)
+}
+
+const saveMember = (member: MemberEntity): Promise<boolean> => {
+    //멤버가 이미 추가됐는지 확인
+    const index = mockMembers.findIndex(m => m.id === member.id)
+
+    //이미 추가되어있으면 업데이트 아니면 새로 추가
+    index >= 0 ?
+        updateMember(member, index) :
+        insertMember(member)
+    
+        return Promise.resolve(true)
+}
+
+const updateMember = (member: MemberEntity, index: number) => {
+    //배열 중간에 데이터 추가
+    mockMembers = [
+        ...mockMembers.slice(0, index),
+        member,
+        ...mockMembers.slice(index + 1)
+    ]
+}
+
+const insertMember = (member: MemberEntity) => {
+    member.id = mockMembers.length
+
+    mockMembers = [
+        ...mockMembers,
+        member
+    ]
 }
 
 //url 통해서 데이터 가져옴
@@ -30,5 +61,6 @@ const mapToMember = (githubMember): MemberEntity => {
 
 export const memberAPI = {
     fetchMembers,
-    fetchMembersAsync
+    fetchMembersAsync,
+    saveMember,
 }

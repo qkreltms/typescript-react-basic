@@ -16,10 +16,12 @@ module.exports = {
     vendor: [
       'react',
       'react-dom',
-      'react-router-dom'
+      'react-router-dom',
+      'toastr'
     ],
     vendorStyles: [
       '../node_modules/bootstrap/dist/css/bootstrap.css',
+      '../node_modules/toastr/build/toastr.css',
     ],
   },
   output: {

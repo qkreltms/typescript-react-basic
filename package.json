@@ -14,12 +14,14 @@
     "mini-css-extract-plugin": "^0.4.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
     "@types/react": "^16.0.19",
     "@types/react-dom": "^16.0.2",
     "@types/react-router-dom": "^4.3.1",
+    "@types/toastr": "^2.1.35",
     "awesome-typescript-loader": "^5.2.0",
     "babel-core": "^6.25.0",
     "babel-preset-env": "^1.5.2",

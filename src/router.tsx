@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Route, HashRouter, Switch } from 'react-router-dom'
 import App from './app'
-import { About, MembersPage } from './component'
+import { About, MembersPage, MemberPageContainer } from './components'
 
 export const AppRouter: React.SFC<{}> = () => {
     return (
@@ -13,6 +13,7 @@ export const AppRouter: React.SFC<{}> = () => {
                     <Route exact path='/' component={About} />
                     <Route path='/about' component={About} />
                     <Route exact path='/members' component={MembersPage} />
+                    <Route exact path='/member' component={MemberPageContainer} />
                 </Switch>
             </div>
         </HashRouter>

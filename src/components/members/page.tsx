@@ -2,6 +2,7 @@ import * as React from "react";
 import { memberAPI } from "../../api/member";
 import { MemberHeader } from "./memberHeader";
 import { MemberRow } from "./memberRow";
+import { Link } from 'react-router-dom'
 
 interface State {
   members: MemberEntity[];
@@ -12,7 +13,7 @@ export class MembersPage extends React.Component<Props, State> {
   state = { members: [] };
 
   public componentDidMount() {
-    memberAPI.fetchMembersAsync().then(members => {
+    memberAPI.fetchMembers().then(members => {
       this.setState({ members });
     });
   }
@@ -21,6 +22,7 @@ export class MembersPage extends React.Component<Props, State> {
     return (
       <div className="row">
         <h2> Members Page </h2>
+        <Link to='/member'>New Member</Link>
         <table className="table">
           <thead>
             <MemberHeader />
