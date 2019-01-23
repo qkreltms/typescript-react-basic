@@ -25,6 +25,7 @@ export const Input: React.SFC<Props> = (props) => {
                     onChange={onChangeInput(props)}
                 />
             </div>
+            {/* validatoin error message prints */}
             <div className='help-block'>{props.error}</div>
         </div>
     )

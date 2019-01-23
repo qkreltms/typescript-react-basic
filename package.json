@@ -15,7 +15,8 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-router-dom": "^4.3.1",
-    "toastr": "^2.1.4"
+    "toastr": "^2.1.4",
+    "lc-form-validation": "^2.0.0"
   },
   "devDependencies": {
     "@types/react": "^16.0.19",

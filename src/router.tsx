@@ -12,8 +12,9 @@ export const AppRouter: React.SFC<{}> = () => {
                 <Switch>
                     <Route exact path='/' component={About} />
                     <Route path='/about' component={About} />
-                    <Route exact path='/members' component={MembersPage} />
+                    <Route path='/members' component={MembersPage} />
                     <Route exact path='/member' component={MemberPageContainer} />
+                    <Route path="/member/:id" component={MemberPageContainer} />
                 </Switch>
             </div>
         </HashRouter>

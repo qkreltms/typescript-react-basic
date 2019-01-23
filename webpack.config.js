@@ -17,7 +17,8 @@ module.exports = {
       'react',
       'react-dom',
       'react-router-dom',
-      'toastr'
+      'toastr',
+      'lc-form-validation'
     ],
     vendorStyles: [
       '../node_modules/bootstrap/dist/css/bootstrap.css',

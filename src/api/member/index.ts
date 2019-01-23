@@ -38,6 +38,21 @@ const insertMember = (member: MemberEntity) => {
     ]
 }
 
+//아이디가 같은 맴버 가져옴
+const fetchMemberById = (id: number): Promise<MemberEntity> => {
+    const index: number = mockMembers.findIndex(m => m.id === id);
+    const member: MemberEntity = index >= 0 ?
+      mockMembers[index]
+      :
+      {
+        id: -1,
+        login: '',
+        avatar_url: '',
+      };
+  
+    return Promise.resolve(member);
+  }
+
 //url 통해서 데이터 가져옴
 const fetchMembersAsync = (): Promise<MemberEntity[]> => {
     const membersURL = `${baseURL}/members`
@@ -47,10 +62,12 @@ const fetchMembersAsync = (): Promise<MemberEntity[]> => {
     .then(mapToMembers)
 }
 
+//새로 매핑한 객체를 배열로 반환
 const mapToMembers = (githubMembers: any[]): MemberEntity[] => {
     return githubMembers.map(mapToMember)
 }
 
+//객체를 새로 매핑해줌
 const mapToMember = (githubMember): MemberEntity => {
     return {
         id: githubMember.id,
@@ -63,4 +80,5 @@ export const memberAPI = {
     fetchMembers,
     fetchMembersAsync,
     saveMember,
+    fetchMemberById,
 }
