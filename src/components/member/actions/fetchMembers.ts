@@ -1,11 +1,14 @@
 import { actionTypes } from "../../../common/constants/actionTypes";
 import { memberAPI } from "../../../api/member";
+import { trackPromise } from "react-promise-tracker";
 
 //처음 실행시 mock 데이터 가져옴
 export const fetchMembersAction = () => (dispatch): void => {
-  memberAPI.fetchMembers().then(members => {
-    dispatch(fetchMembersCompleted(members));
-  });
+  trackPromise(
+    memberAPI.fetchMembers().then(members => {
+      dispatch(fetchMembersCompleted(members));
+    })
+  );
 };
 
 //mock 데이터와 엑션 타입을 반환함

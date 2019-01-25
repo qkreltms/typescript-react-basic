@@ -23,13 +23,6 @@ const handleFetchMemberByIdCompleted = (state: MemberEntity = createEmptyMember(
     return payload
 }
 
-// const handleUpdateMemberField = (state: MemberEntity, payload: MemberFieldChangePayload): MemberEntity => {(
-//     {
-//         ...state,
-//         [payload.fieldValidationResult.key]: payload.value
-//     }
-//)}
-
 const handleUpdateMemberField = (state: MemberEntity = createEmptyMember(), payload: MemberFieldChangePayload): MemberEntity => {
     return {
         ...state,

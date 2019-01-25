@@ -1,6 +1,8 @@
 import { members } from './mockData'
+import { RepositoryEntity } from '../../model'
 
 const baseURL = 'https://api.github.com/orgs/lemoncode'
+const repoURL = 'https://api.github.com/orgs/lemoncode/repos'
 let mockMembers = members
 
 //내장된 파일의 가짜 데이터에서 가져옴
@@ -76,9 +78,30 @@ const mapToMember = (githubMember): MemberEntity => {
     }
 }
 
+const mapToRepositories = (githubRepositories: any[]): RepositoryEntity[] => {
+    return githubRepositories.map(mapToRepository)
+}
+
+const mapToRepository = (githubRepository: any): RepositoryEntity => {
+    return {
+        id: githubRepository.id,
+        name: githubRepository.name,
+        description: githubRepository.decription
+    }
+}
+
+const fetchRepositoriesAsync = (): Promise<RepositoryEntity[]> => {
+    const repositoryURL = repoURL
+
+    return fetch(repositoryURL)
+    .then(res => res.json())
+    .then(mapToRepositories)
+}
+
 export const memberAPI = {
     fetchMembers,
     fetchMembersAsync,
     saveMember,
     fetchMemberById,
+    fetchRepositoriesAsync,
 }

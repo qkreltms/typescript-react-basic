@@ -1,14 +1,16 @@
-import { actionTypes } from '../../../common/constants/actionTypes';
-import { memberAPI } from '../../../api/member';
+import { actionTypes } from "../../../common/constants/actionTypes";
+import { memberAPI } from "../../../api/member";
+import { trackPromise } from "react-promise-tracker";
 
-export const fetchMembersAction = () => (dispatch) => {
-  memberAPI.fetchMembers()
-    .then((members) => {
+export const fetchMembersAction = () => dispatch => {
+  trackPromise(
+    memberAPI.fetchMembers().then(members => {
       dispatch(fetchMembersCompleted(members));
-    });
+    })
+  );
 };
 
 const fetchMembersCompleted = (members: MemberEntity[]) => ({
   type: actionTypes.FETCH_MEMBERS_COMPLETED,
-  payload: members,
+  payload: members
 });
