@@ -22,6 +22,7 @@ export const MemberForm: React.SFC<Props> = props => {
         error={
             props.memberErrors.login.succeeded ?
             '' :
+            //FieldValidationResult의 errorMessage를 넣어줌
             props.memberErrors.login.errorMessage
         }
       />

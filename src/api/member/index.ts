@@ -17,7 +17,7 @@ const saveMember = (member: MemberEntity): Promise<boolean> => {
         updateMember(member, index) :
         insertMember(member)
     
-        return Promise.resolve(true)
+    return Promise.resolve(true)
 }
 
 const updateMember = (member: MemberEntity, index: number) => {
@@ -38,7 +38,7 @@ const insertMember = (member: MemberEntity) => {
     ]
 }
 
-//아이디가 같은 맴버 가져옴
+//아이디가 같은 맴버 가져옴 없으면 초기값 반환
 const fetchMemberById = (id: number): Promise<MemberEntity> => {
     const index: number = mockMembers.findIndex(m => m.id === id);
     const member: MemberEntity = index >= 0 ?

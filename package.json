@@ -11,16 +11,20 @@
   "dependencies": {
     "bootstrap": "^4.1.3",
     "jquery": "^3.2.1",
+    "lc-form-validation": "^1.0.0",
     "mini-css-extract-plugin": "^0.4.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
-    "toastr": "^2.1.4",
-    "lc-form-validation": "^2.0.0"
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "toastr": "^2.1.4"
   },
   "devDependencies": {
     "@types/react": "^16.0.19",
     "@types/react-dom": "^16.0.2",
+    "@types/react-redux": "^7.0.0",
     "@types/react-router-dom": "^4.3.1",
     "@types/toastr": "^2.1.35",
     "awesome-typescript-loader": "^5.2.0",

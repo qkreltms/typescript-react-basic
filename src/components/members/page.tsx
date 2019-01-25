@@ -4,18 +4,20 @@ import { MemberHeader } from "./memberHeader";
 import { MemberRow } from "./memberRow";
 import { Link } from 'react-router-dom'
 
-interface State {
-  members: MemberEntity[];
+interface Props {
+  members: MemberEntity[]
+  fetchMembers(): void
 }
-interface Props {}
 
-export class MembersPage extends React.Component<Props, State> {
-  state = { members: [] };
+export class MembersPage extends React.Component<Props, {}> {
+
+  constructor(props) {
+    super(props);
+    this.state = { members: [] };
+  }
 
   public componentDidMount() {
-    memberAPI.fetchMembers().then(members => {
-      this.setState({ members });
-    });
+    this.props.fetchMembers()
   }
 
   public render() {
@@ -28,7 +30,7 @@ export class MembersPage extends React.Component<Props, State> {
             <MemberHeader />
           </thead>
           <tbody>
-            {this.state.members.map(member => (
+            {this.props.members.map(member => (
               <MemberRow key={member.id} member={member} />
             ))}
           </tbody>
