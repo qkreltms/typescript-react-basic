@@ -1,6 +1,6 @@
 {
     "rootDir": "../../",
-    "testRegex": "\\.test\\.tsx?$",
+    "testRegex": "\\.spec\\.tsx?$",
     "moduleFileExtensions": [
         "js",
         "jsx",
