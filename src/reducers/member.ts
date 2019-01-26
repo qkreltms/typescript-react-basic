@@ -14,12 +14,18 @@ export const memberReducer = (state = createEmptyMember(), action) => {
             return handleFetchMemberByIdCompleted(state, action.payload)
         case actionTypes.UPDATE_MEMBER_FIELD:
             return handleUpdateMemberField(state, action.payload)
+        case actionTypes.SAVE_MEMBER:
+            return handleSaveMember(state, action.payload)
     }
 
     return state
 }
 
-const handleFetchMemberByIdCompleted = (state: MemberEntity = createEmptyMember(), payload: MemberEntity): MemberEntity => {
+const handleSaveMember = (state: MemberEntity = createEmptyMember(), payload:MemberEntity=createEmptyMember()):MemberEntity =>{
+    return payload
+}
+
+const handleFetchMemberByIdCompleted = (state: MemberEntity = createEmptyMember(), payload: MemberEntity = createEmptyMember()): MemberEntity => {
     return payload
 }
 
