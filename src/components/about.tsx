@@ -55,5 +55,5 @@ export const About: React.SFC<{}> = () => {
         </ul>
       </div>
     </div>
-    )
+    ) 
 }
